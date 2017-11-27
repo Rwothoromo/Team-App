@@ -62,6 +62,14 @@ class Department(db.Model):
     description = db.Column(db.String(200))
     employees = db.relationship('Employee', backref='department',
                                 lazy='dynamic')
+    """
+    backref allows us to create a new property on the Employee model such that 
+    we can use employee.department or employee.role to get the department or role 
+    assigned to that employee.
+    
+    lazy defines how the data will be loaded from the database; 
+    in this case it will be loaded dynamically, which is ideal for managing large collections.
+    """
 
     def __repr__(self):
         return '<Department: {}>'.format(self.name)
