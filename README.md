@@ -1,5 +1,5 @@
-# Flask-App
-Flask starter app
+# Team-App
+Team app with CRUD implementation
 
 **Technologies**
 * Python 3.6
