@@ -14,7 +14,7 @@ Team app with CRUD implementation
 * Run mkvirtualenv venv
 * Run workon venv
 * Run `git clone` this repository and `cd` into the project root.
-* Run `set FLASK_CONFIG=development` on command prompt
+* Run `set FLASK_CONFIG=production` on command prompt
 * Run `set FLASK_APP=run.py` on command prompt
 * Run `flask run` on command prompt
 * View the app on `http://127.0.0.1:5000/`
