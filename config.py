@@ -5,12 +5,14 @@ which we will use while building the app and running it locally
  as well as production, which we will use when the app is deployed.
 """
 
+
 class Config(object):
     """
     Common configurations
     """
 
     # Put any configurations here that are common across all environments
+
 
 class DevelopmentConfig(Config):
     """
@@ -29,6 +31,7 @@ class ProductionConfig(Config):
     """
 
     DEBUG = False
+
 
 app_config = {
     'development': DevelopmentConfig,

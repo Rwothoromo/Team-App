@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db, login_manager
 
+
 class Employee(UserMixin, db.Model):
     """
     Create an Employee table
@@ -46,9 +47,12 @@ class Employee(UserMixin, db.Model):
         return '<Employee: {}>'.format(self.username)
 
 # Set up user_loader
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return Employee.query.get(int(user_id))
+
 
 class Department(db.Model):
     """
@@ -60,8 +64,9 @@ class Department(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), unique=True)
     description = db.Column(db.String(200))
-    employees = db.relationship('Employee', backref='department',
-                                lazy='dynamic')
+    employees = db.relationship(
+        'Employee', backref='department', lazy='dynamic')
+
     """
     backref allows us to create a new property on the Employee model such that 
     we can use employee.department or employee.role to get the department or role 
@@ -74,6 +79,7 @@ class Department(db.Model):
     def __repr__(self):
         return '<Department: {}>'.format(self.name)
 
+
 class Role(db.Model):
     """
     Create a Role table
@@ -84,8 +90,7 @@ class Role(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), unique=True)
     description = db.Column(db.String(200))
-    employees = db.relationship('Employee', backref='role',
-                                lazy='dynamic')
+    employees = db.relationship('Employee', backref='role', lazy='dynamic')
 
     def __repr__(self):
         return '<Role: {}>'.format(self.name)
