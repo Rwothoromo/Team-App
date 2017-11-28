@@ -1,5 +1,5 @@
 # Team-App
-Team app with CRUD implementation
+Flask Team-App with CRUD implementation
 
 **Technologies**
 * Python 3.6
