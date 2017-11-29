@@ -12,10 +12,9 @@ Flask Team-App with CRUD implementation
 * Run `set WORKON_HOME=%USERPROFILES%\Envs` on command prompt
 
 **Setup**
-* Open command prompt and change directory to your select directory e.g. cd c:
+* Run `git clone` this repository and `cd` into the project root.
 * Run `mkvirtualenv venv` on command prompt
 * Run `workon venv` on command prompt
-* Run `git clone` this repository and `cd` into the project root.
 * Run `pip install -r requirements.txt` on command prompt
 * OR Run `pip install flask-sqlalchemy mysql-python flask-login Flask-WTF flask-migrate flask-bootstrap` on command prompt
 * Create the file `'instance\config.py'`
