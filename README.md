@@ -17,10 +17,15 @@ Flask Team-App with CRUD implementation
 * Run `workon venv` on command prompt
 * Run `git clone` this repository and `cd` into the project root.
 * Run `pip install -r requirements.txt` on command prompt
+* OR Run `pip install flask-sqlalchemy mysql-python flask-login Flask-WTF flask-migrate flask-bootstrap` on command prompt
 * Create the file `'instance\config.py'`
 * Inside `'instance\config.py'`, create variables;
     - SECRET_KEY = 'some value'
     - SQLALCHEMY_DATABASE_URI = 'mysql://db_admin_name:db_admin_password@localhost/db_name'
+* Run `mysql -u root`
+    - mysql> CREATE USER 'db_admin_name'@'localhost' IDENTIFIED BY 'db_admin_password';
+    - mysql> CREATE DATABASE db_name;
+    - mysql> GRANT ALL PRIVILEGES ON db_name . * TO 'db_admin_name'@'localhost';
 * Run `set FLASK_CONFIG=production` on command prompt
 * Run `set FLASK_APP=run.py` on command prompt
 * Run `flask db init` on command prompt
