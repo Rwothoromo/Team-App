@@ -21,9 +21,9 @@ class DevelopmentConfig(Config):
 
     DEBUG = True
     SQLALCHEMY_ECHO = True
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Allowing SQLAlchemy to log errors
     # TESTING = True activates the testing mode of Flask extensions.
+    # SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProductionConfig(Config):

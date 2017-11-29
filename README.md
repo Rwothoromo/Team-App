@@ -16,6 +16,9 @@ Flask Team-App with CRUD implementation
 * Run workon venv
 * Run `git clone` this repository and `cd` into the project root.
 * Run `pip install -r requirements.txt` on command prompt
+* Run `flask db init` on command prompt
+* Run `flask db migrate` on command prompt
+* Run `flask db upgrade` on command prompt
 * Run `set FLASK_CONFIG=production` on command prompt
 * Run `set FLASK_APP=run.py` on command prompt
 * Run `flask run` on command prompt
