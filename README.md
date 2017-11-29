@@ -19,7 +19,7 @@ Flask Team-App with CRUD implementation
 * Create the file `'instance\config.py'`
 * Inside `'instance\config.py'`, create variables;
     - SECRET_KEY = 'some value'
-    - SQLALCHEMY_DATABASE_URI = 'mysql://db_admin:db_admin_password@localhost/db_name'
+    - SQLALCHEMY_DATABASE_URI = 'mysql://db_admin_name:db_admin_password@localhost/db_name'
 * Run `set FLASK_CONFIG=production` on command prompt
 * Run `set FLASK_APP=run.py` on command prompt
 * Run `flask db init` on command prompt
