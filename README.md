@@ -1,5 +1,6 @@
-# Team-App
+# Team-App - phase one
 Flask Team-App with CRUD implementation
+(Based on https://scotch.io/tutorials/build-a-crud-web-app-with-python-and-flask-part-one)
 
 **Technologies**
 * Python 3.6
