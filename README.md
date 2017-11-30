@@ -16,7 +16,6 @@ Flask Team-App with CRUD implementation
 * Run `mkvirtualenv venv` on command prompt
 * Run `workon venv` on command prompt
 * Run `pip install -r requirements.txt` on command prompt
-* OR Run `pip install flask-sqlalchemy mysqlclient flask-login Flask-WTF flask-migrate flask-bootstrap` on command prompt
 * Create the file `'instance\config.py'`
 * Inside `'instance\config.py'`, create variables;
     - SECRET_KEY = 'some value'
