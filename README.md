@@ -29,6 +29,12 @@ Flask Team-App with CRUD implementation
 * Run `flask db init` on command prompt
 * Run `flask db migrate` on command prompt
 * Run `flask db upgrade` on command prompt
+* Run `flask shell` on command prompt then type the following
+>>> from app.models import Employee
+>>> from app import db
+>>> admin = Employee(email="admin@admin.com",username="admin",password="admin2016",is_admin=True)
+>>> db.session.add(admin)
+>>> db.session.commit()
 * Run `flask run` on command prompt
 * View the app on `http://127.0.0.1:5000/`
 * Fully setup!
