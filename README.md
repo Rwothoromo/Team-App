@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Rwothoromo/Team-App.svg?branch=master)](https://travis-ci.org/Rwothoromo/Team-App)
+
 # Team-App
 Flask Team-App with CRUD implementation
 
