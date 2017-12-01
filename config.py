@@ -37,6 +37,7 @@ class TestingConfig(Config):
     Testing configurations
     """
 
+    SECRET_KEY = 'some value'
     TESTING = True
 
 
