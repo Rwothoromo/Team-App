@@ -16,6 +16,8 @@ services:
 
 before_install:
   - mysql -e 'CREATE DATABASE db_test;'
+  - mysql -e 'CREATE USER db_admin_name IDENTIFIED BY db_admin_password;'
+  - mysql -e 'GRANT ALL PRIVILEGES ON db_test . * TO db_admin_name;'
 
 # command to run tests
 script:
