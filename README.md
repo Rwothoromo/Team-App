@@ -4,10 +4,10 @@
 Flask Team-App with CRUD implementation
 
 **Technologies**
-* Python 3.6
+* Python 3.6 or 2.7
 
 **Requirements**
-* Install [Python 3.6](https://www.python.org/downloads/)
+* Install [Python](https://www.python.org/downloads/)
 * Run `pip install virtualenv` on command prompt
 * Run `pip install virtualenvwrapper-win` on command prompt
 * Run `set WORKON_HOME=%USERPROFILES%\Envs` on command prompt
