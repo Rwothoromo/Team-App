@@ -38,6 +38,7 @@ class TestingConfig(Config):
     """
 
     SECRET_KEY = 'some value'
+    SQLALCHEMY_DATABASE_URI='mysql://db_admin_name:db_admin_password@localhost/db_test'
     TESTING = True
 
 
