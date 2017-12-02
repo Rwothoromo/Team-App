@@ -11,9 +11,11 @@ install:
 env:
   - ENV_VAR=testing
 
-# create a db named test
-before_script:
-  - psql -c "CREATE DATABASE db_test;" -U postgres
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE db_test;'
 
 # command to run tests
 script:
