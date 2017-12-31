@@ -1,3 +1,5 @@
+import os
+
 # third-party imports
 from flask import abort, Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
@@ -16,10 +18,16 @@ login_manager = LoginManager()
 # Given a configuration name, load the correct configuration from the config.py file,
 # as well as the configurations from the instance/config.py file.
 def create_app(config_name):
-    # app = Flask(__name__, instance_relative_config=True)
-    app = Flask(__name__)
-    app.config.from_object(app_config[config_name])
-    # app.config.from_pyfile('config.py')
+    if os.getenv('FLASK_CONFIG') == "production":
+        app = Flask(__name__)
+        app.config.update(
+            SECRET_KEY=os.getenv('SECRET_KEY'),
+            SQLALCHEMY_DATABASE_URI=os.getenv('SQLALCHEMY_DATABASE_URI')
+        )
+    else:
+        app = Flask(__name__, instance_relative_config=True)
+        app.config.from_object(app_config[config_name])
+        app.config.from_pyfile('config.py') # this loads 'instance/config.py'
 
     Bootstrap(app)
     db.init_app(app)
