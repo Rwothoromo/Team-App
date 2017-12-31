@@ -47,4 +47,5 @@ Flask Team-App with CRUD implementation
 * Fully setup!
 
 **Unittests**
-* Run `pytest`
+* Run `set FLASK_CONFIG=testing` on command prompt
+* Run `pytest` on command prompt

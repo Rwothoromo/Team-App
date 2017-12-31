@@ -28,7 +28,7 @@ class TestBase(TestCase):
         db.create_all()
 
         # create test admin user
-        admin = Employee(username="admin", password="admin2017", is_admin=True)
+        admin = Employee(username="test_admin", password="testadmin2017", is_admin=True)
 
         # create test non-admin user
         employee = Employee(username="test_user", password="test2017")
