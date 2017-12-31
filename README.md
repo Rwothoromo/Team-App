@@ -25,6 +25,8 @@ Flask Team-App with CRUD implementation
     - mysql> `CREATE USER 'db_admin_name'@'localhost' IDENTIFIED BY 'db_admin_password';`
     - mysql> `CREATE DATABASE db_name;`
     - mysql> `GRANT ALL PRIVILEGES ON db_name . * TO 'db_admin_name'@'localhost';`
+    - mysql> `CREATE DATABASE db_test;`
+    - mysql> `GRANT ALL PRIVILEGES ON db_test . * TO 'db_admin_name'@'localhost';`
     - mysql> `exit`
 * Run `set FLASK_CONFIG=development` on command prompt
 * Run `set FLASK_APP=run.py` on command prompt
