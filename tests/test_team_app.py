@@ -6,11 +6,9 @@ This module runs tests on the functionality of team app.
 import unittest
 import os
 
-# from flask import abort, url_for
 from flask_testing import TestCase
 
 from app import create_app, db
-# from app.models import Department, Employee, Role
 from app.models import Employee
 
 class TestBase(TestCase):
