@@ -43,3 +43,6 @@ Flask Team-App with CRUD implementation
 * Run `flask run` on command prompt
 * View the app on `http://127.0.0.1:5000/`
 * Fully setup!
+
+**Unittests**
+* Run `pytest`

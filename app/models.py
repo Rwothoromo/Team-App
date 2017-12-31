@@ -47,8 +47,6 @@ class Employee(UserMixin, db.Model):
         return '<Employee: {}>'.format(self.username)
 
 # Set up user_loader
-
-
 @login_manager.user_loader
 def load_user(user_id):
     return Employee.query.get(int(user_id))

@@ -1,10 +1,3 @@
-"""
-We've created a function, create_app that, given a configuration name,
-loads the correct configuration from the config.py file,
-as well as the configurations from the instance/config.py file.
-We have also created a db object which we will use to interact with the database.
-"""
-
 # third-party imports
 from flask import abort, Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
@@ -15,11 +8,13 @@ from flask_bootstrap import Bootstrap
 # local imports
 from config import app_config
 
-# db variable initialization
+# db variable initialization, which we will use to interact with the database
 db = SQLAlchemy()
 login_manager = LoginManager()
 
 
+# Given a configuration name, load the correct configuration from the config.py file,
+# as well as the configurations from the instance/config.py file.
 def create_app(config_name):
     # app = Flask(__name__, instance_relative_config=True)
     app = Flask(__name__)
