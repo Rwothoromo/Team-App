@@ -1,11 +1,131 @@
 #-*- coding: utf-8-*-
 """
-This module runs tests on the pages/views.
+This module runs tests on the functionality of team app.
 """
 
 import unittest
-from flask import url_for
-from tests.test_team_app import TestBase
+import os
+
+from flask import url_for, abort
+
+from flask_testing import TestCase
+
+from app import create_app, db
+from app.models import Employee, Department, Role
+
+class TestBase(TestCase):
+
+    def create_app(self):
+
+        # pass in test configurations
+        config_name = 'testing'
+        app = create_app(config_name)
+        return app
+
+    def setUp(self):
+        """
+        Will be called before every test
+        """
+
+        db.create_all()
+
+        # create test admin user
+        admin = Employee(username="test_admin", password="testadmin2017", is_admin=True)
+
+        # create test non-admin user
+        employee = Employee(username="test_user", password="test2017")
+
+        # save users to database
+        db.session.add(admin)
+        db.session.add(employee)
+        db.session.commit()
+
+    def tearDown(self):
+        """
+        Will be called after every test
+        """
+
+        db.session.remove()
+        db.drop_all()
+
+class TestDepartment(TestBase):
+    """
+    Testing The Department class functionality.
+    """
+    
+    def test_department_model(self):
+        """
+        Test number of records in Department table
+        """
+
+        # create test department
+        department = Department(name="IT", description="The IT Department")
+
+        # save department to database
+        db.session.add(department)
+        db.session.commit()
+
+        self.assertEqual(Department.query.count(), 1)
+
+class TestEmployee(TestBase):
+    """
+    Testing The Employee class functionality.
+    """
+    
+    def test_employee_model(self):
+        """
+        Test number of records in Employee table
+        """
+        self.assertEqual(Employee.query.count(), 2)
+
+class TestErrorPages(TestBase):
+    """
+    Testing the error pages/views functionality.
+    """
+    
+    def test_403_forbidden(self):
+        # create route to abort the request with the 403 Error
+        @self.app.route('/403')
+        def forbidden_error():
+            abort(403)
+
+        response = self.client.get('/403')
+        self.assertEqual(response.status_code, 403)
+        # self.assertTrue("403 Error" in response.data)
+
+    def test_404_not_found(self):
+        response = self.client.get('/nothinghere')
+        self.assertEqual(response.status_code, 404)
+        # self.assertTrue("404 Error" in response.data)
+
+    def test_500_internal_server_error(self):
+        # create route to abort the request with the 500 Error
+        @self.app.route('/500')
+        def internal_server_error():
+            abort(500)
+
+        response = self.client.get('/500')
+        self.assertEqual(response.status_code, 500)
+        # self.assertTrue("500 Error" in response.data)
+
+class TestRole(TestBase):
+    """
+    Testing The Role class functionality.
+    """
+    
+    def test_role_model(self):
+        """
+        Test number of records in Role table
+        """
+
+        # create test role
+        role = Role(name="CEO", description="Runs the whole company")
+
+        # save role to database
+        db.session.add(role)
+        db.session.commit()
+
+        self.assertEqual(Role.query.count(), 1)
 
 class TestViews(TestBase):
     """
@@ -91,3 +211,6 @@ class TestViews(TestBase):
         response = self.client.get(target_url)
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, redirect_url)
+
+if __name__ == '__main__':
+    unittest.main()
