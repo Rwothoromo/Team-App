@@ -32,7 +32,7 @@ def create_app(config_name):
         app.config.from_object(app_config[config_name])
 
         # Updates the values in the config from a Python file
-        app.config.from_pyfile('config.py') # this loads 'instance/config.py'
+        # app.config.from_pyfile('config.py') # this loads 'instance/config.py'
 
     # set to False to avoid wasting resources
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
