@@ -25,12 +25,23 @@ def create_app(config_name):
             SQLALCHEMY_DATABASE_URI=os.getenv('SQLALCHEMY_DATABASE_URI')
         )
     else:
+        # Load configurations from instance folder
         app = Flask(__name__, instance_relative_config=True)
+
+        # Update the values from the given object
         app.config.from_object(app_config[config_name])
+
+        # Updates the values in the config from a Python file
         app.config.from_pyfile('config.py') # this loads 'instance/config.py'
 
+    # set to False to avoid wasting resources
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
     Bootstrap(app)
+
+    # prep application to work with SQLAlchemy
     db.init_app(app)
+
     login_manager.init_app(app)
     login_manager.login_message = "You must be logged in to access this page."
     login_manager.login_view = "auth.login"

@@ -11,6 +11,9 @@ class Config(object):
     Common configurations
     """
     
+    SECRET_KEY = 'some value'
+    SQLALCHEMY_DATABASE_URI='mysql://db_admin_name:db_admin_password@localhost/db_name'
+    
     DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Put any configurations here that are common across all environments
